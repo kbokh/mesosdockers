@@ -25,7 +25,6 @@ One or more NVIDIA devices should be attached to the container
   where # is number of the NVIDIA device
 
 2. For greater performance, you can also install cuDNN.
-
 - Download from the cuDNN website
 - Unpack cuDNN in somewhere on the host, e.g. /home/user/cudnn
 - Map the files directly into your container using -v docker option
