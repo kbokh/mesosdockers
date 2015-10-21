@@ -24,7 +24,21 @@ One or more NVIDIA devices should be attached to the container
 - docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/srk-lasagne 
   where # is number of the NVIDIA device
 
-2. Example of a marathon json for mesos
+2. For greater performance, you can also install cuDNN.
+
+- Download from the cuDNN website
+- Unpack cuDNN in somewhere on the host, e.g. /home/user/cudnn
+- Map the files directly into your container using -v docker option
+
+```
+-v /home/user/cudnn/libcudnn.so:/usr/local/cuda/lib64/libcudnn.so:ro \
+-v /home/user/cudnn/libcudnn.so.7.0:/usr/local/cuda/lib64/libcudnn.so.7.0:ro \
+-v /home/user/cudnn/libcudnn.so.7.0.64:/usr/local/cuda/lib64/libcudnn.so.7.0.64:ro \
+-v /home/user/cudnn/libcudnn_static.a:/usr/local/cuda/lib64/libcudnn_static.a:ro \
+-v /home/user/cudnn/cudnn.h:/usr/local/cuda/include/libcudnn_static.a:ro \
+
+```
+3. Example of a marathon json for mesos
 ```
 {
     "id": "rnn-53",
