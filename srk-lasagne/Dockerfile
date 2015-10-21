@@ -58,9 +58,10 @@ RUN conda install --yes \
     bokeh \
     && conda clean -yt
 
-# Install Lasagne & Theano
-RUN pip install -r https://raw.githubusercontent.com/Lasagne/Lasagne/master/requirements.txt
-RUN pip install https://github.com/Lasagne/Lasagne/archive/master.zip
+# Install bleeding-edge Theano
+RUN pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
+# Install bleeding-edge Lasagne
+RUN pip install --upgrade https://github.com/Lasagne/Lasagne/archive/master.zip
 
 ENV LANG C.UTF-8
 
