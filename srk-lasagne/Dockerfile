@@ -40,11 +40,6 @@ ENV LD_LIBRARY_PATH $CUDA_ROOT/lib64:$LD_LIBRARY_PATH
 ENV LIBRARY_PATH $LIBRARY_PATH:$CUDA_ROOT/lib64
 ENV CPATH $CPATH:$CUDA_ROOT/include
 
-# Install cuDNN lib and header
-COPY cuDNN/lib* $CUDA_ROOT/lib64/
-COPY cuDNN/*.h $CUDA_ROOT/include/
-
-
 # Install conda
 RUN mkdir -p $CONDA_DIR && \
     echo 'export PATH=$CONDA_DIR/bin:$PATH' > /etc/profile.d/conda.sh && \
