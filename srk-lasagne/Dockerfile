@@ -10,13 +10,15 @@ ENV CUDA_MINOR_VERSION 18
 
 ENV CONDA_DIR /opt/conda
 
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
+		module-init-tools \
 		build-essential \
 		git \
 		bzip2 \
 		libglib2.0-0 \
 		libxext6 libsm6 \
-		libxrender1
+		libxrender1 \
 	&& rm -rf /var/lib/apt/lists/*
 
 
