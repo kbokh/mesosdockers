@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libglib2.0-0 \
 		libxext6 libsm6 \
 		libxrender1 \
+		gfortran \
 	&& rm -rf /var/lib/apt/lists/*
 
 
