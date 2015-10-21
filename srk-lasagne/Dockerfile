@@ -12,6 +12,9 @@ ENV CONDA_DIR /opt/conda
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+		ca-certificates \
+		curl \
+		wget \
 		module-init-tools \
 		build-essential \
 		git \
