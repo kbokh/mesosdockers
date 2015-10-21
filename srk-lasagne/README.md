@@ -1,7 +1,7 @@
 
 ## SRK-Lasagne
 
-This dockerfile is destined for research and development machine learning technologies especially deep learning. It can be use with mesos cluster
+This dockerfile is destined for research and development of machine learning technologies especially deep learning. It can be use with mesos cluster.
 SRK-lasagne is based on:
 - debian
 - cuda 7.5.18
@@ -25,7 +25,7 @@ One or more NVIDIA devices should be attached to the container
   where # is number of the NVIDIA device
 
 2. Example of a marathon json for mesos
-
+```
 {
     "id": "rnn-53",
     "container": {
@@ -49,4 +49,5 @@ One or more NVIDIA devices should be attached to the container
     "gpu": 1.0,
     "instances": 1
 }
-Comments. Mesos custom resources like "gpu" are not supported by marathon and other mesos frameworks yet. 
+```
+*Comments.* Mesos custom resources like "gpu" are not supported by marathon and other mesos frameworks yet. 
