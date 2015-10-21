@@ -23,14 +23,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libglib2.0-0 \
 		libxext6 libsm6 \
 		libxrender1 \
-		gfortran \
 	&& rm -rf /var/lib/apt/lists/*
 
 
 # Install CUDA
 RUN cd /tmp && \
 # Download run file
-  wget http://developer.download.nvidia.com/compute/cuda/${CUDA_MAJOR_VERSION}/Prod/local_installers/cuda_${CUDA_MAJOR_VERSION}.${CUDA_MINOR_VERSION}_linux.run && \
+  wget --quiet http://developer.download.nvidia.com/compute/cuda/${CUDA_MAJOR_VERSION}/Prod/local_installers/cuda_${CUDA_MAJOR_VERSION}.${CUDA_MINOR_VERSION}_linux.run && \
 # Make the run file executable and extract
   chmod +x cuda_*_linux.run && ./cuda_*_linux.run -extract=`pwd` && \
 # Install CUDA drivers (silent, no kernel)
