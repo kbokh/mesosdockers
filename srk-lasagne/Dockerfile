@@ -1,4 +1,4 @@
-FROM curl
+FROM buildpack-deps:curl
 MAINTAINER Kostaintyn Bokhan <k.bokhan@samsung.com> 
 
 # Add image description and version
