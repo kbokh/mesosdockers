@@ -65,7 +65,7 @@ RUN conda install --yes \
     && conda clean -yt
 
 # Install bleeding-edge Theano
-RUN pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
+RUN pip install -r https://raw.githubusercontent.com/Lasagne/Lasagne/master/requirements.txt
 # Install bleeding-edge Lasagne
 RUN pip install --upgrade https://github.com/Lasagne/Lasagne/archive/master.zip
 
