@@ -18,14 +18,14 @@ SRK-lasagne is based on:
 
 One or more NVIDIA devices should be attached to the container
 
-1. Standalone
+#### Standalone
 ```
 docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/srk-lasagne
 docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/srk-lasagne 
 ```
   where # is number of the NVIDIA device
 
-2. For greater performance, you can also install cuDNN.
+#### For greater performance, you can also install cuDNN.
   - Download from the cuDNN website
   - Unpack cuDNN in somewhere on the host, e.g. /home/user/cudnn
   - Map the files directly into your container using -v docker option
@@ -38,7 +38,7 @@ docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nv
 -v /home/user/cudnn/cudnn.h:/usr/local/cuda/include/libcudnn_static.a:ro \
 
 ```
-3. Example of a marathon json for mesos
+#### Example of a marathon json for mesos
 ```
 {
     "id": "rnn-53",
