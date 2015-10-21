@@ -17,11 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		wget \
 		module-init-tools \
 		build-essential \
-		equivs \
-		git-buildpackage \
 		git \
 		lsb-release \
-		openssh-client \
 		bzip2 \
 		libglib2.0-0 \
 		libxext6 libsm6 \
@@ -49,6 +46,8 @@ ENV LD_LIBRARY_PATH $CUDA_ROOT/lib64:$LD_LIBRARY_PATH
 ENV LIBRARY_PATH $LIBRARY_PATH:$CUDA_ROOT/lib64
 ENV CPATH $CPATH:$CUDA_ROOT/include
 
+ENV LANG C.UTF-8
+
 # Install conda
 RUN mkdir -p $CONDA_DIR && \
     echo 'export PATH=$CONDA_DIR/bin:$PATH' > /etc/profile.d/conda.sh && \
@@ -69,8 +68,6 @@ RUN conda install --yes \
 RUN pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
 # Install bleeding-edge Lasagne
 RUN pip install --upgrade https://github.com/Lasagne/Lasagne/archive/master.zip
-
-ENV LANG C.UTF-8
 
 # Set up .theanorc for CUDA 
 RUN echo "[nvcc]\nfastmath = True\n[global]\ndevice=cpu\nfloatX=float32\nallow_gc=False" > /root/.theanorc
