@@ -17,7 +17,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		wget \
 		module-init-tools \
 		build-essential \
+		equivs \
+		git-buildpackage \
 		git \
+		lsb-release \
+		openssh-client \
 		bzip2 \
 		libglib2.0-0 \
 		libxext6 libsm6 \
