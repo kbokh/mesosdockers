@@ -1,4 +1,4 @@
-FROM krot:srk-lasagne
+FROM krot/srk-lasagne
 MAINTAINER Kostaintyn Bokhan <k.bokhan@samsung.com> 
 
 # Add image description and version
