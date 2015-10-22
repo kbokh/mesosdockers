@@ -9,15 +9,19 @@ ENV SHELL /bin/bash
 ENV NB_USER spworker
 ENV NB_UID 1000
 ENV APACHE_SPARK_VERSION 1.5.1
-
+ENV JAVA_VERSION 8
 
 # Add mesosphere repository
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
 echo deb http://repos.mesosphere.io/ubuntu trusty main > /etc/apt/sources.list.d/mesosphere.list
 
+RUN \
+    echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+    echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee /etc/apt/sources.list.d/webupd8team-java.list && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		openjdk-8-jdk \
+		oracle-java$JAVA_VERSION-installer \
 		mesos \
 		pandoc \
 		texlive-latex-base \
@@ -26,6 +30,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		texlive-fonts-recommended \
 	&& rm -rf /var/lib/apt/lists/*
 
+# Define JAVA_HOME 
+ENV JAVA_HOME /usr/lib/jvm/java-$JAVA_VERSION-oracle
 
 # Install spark
 RUN wget -qO - http://d3kbcqa49mib13.cloudfront.net/spark-${APACHE_SPARK_VERSION}-bin-hadoop2.6.tgz | tar -xz -C /usr/local/
