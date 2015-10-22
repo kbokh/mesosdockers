@@ -62,7 +62,8 @@ ENV PATH $CONDA_DIR/bin:$PATH
 RUN conda install --yes \
     pip \
     bokeh \
-    && conda clean -yt
+    matplotlib \
+  && conda clean -yt
 
 # Install bleeding-edge Theano
 RUN pip install --upgrade --no-deps https://github.com/Theano/Theano/archive/master.zip
