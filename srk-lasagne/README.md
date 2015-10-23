@@ -35,7 +35,7 @@ docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nv
 -v /home/user/cudnn/libcudnn.so.7.0:/usr/local/cuda/lib64/libcudnn.so.7.0:ro \
 -v /home/user/cudnn/libcudnn.so.7.0.64:/usr/local/cuda/lib64/libcudnn.so.7.0.64:ro \
 -v /home/user/cudnn/libcudnn_static.a:/usr/local/cuda/lib64/libcudnn_static.a:ro \
--v /home/user/cudnn/cudnn.h:/usr/local/cuda/include/libcudnn_static.a:ro \
+-v /home/user/cudnn/cudnn.h:/usr/local/cuda/include/cudnn.h:ro \
 
 ```
 #### Example of a marathon json for mesos
