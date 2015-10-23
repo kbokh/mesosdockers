@@ -63,6 +63,7 @@ RUN conda install --yes \
     pip \
     bokeh \
     matplotlib \
+    scikit-learn \
   && conda clean -yt
 
 # Install bleeding-edge Theano
