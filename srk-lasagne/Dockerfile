@@ -1,4 +1,4 @@
-FROM krot/srk-cuda-base
+FROM krot/srk-cuda-base:latest
 MAINTAINER Kostaintyn Bokhan <k.bokhan@samsung.com> 
 
 # Add image description and version
