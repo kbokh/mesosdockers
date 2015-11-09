@@ -1,4 +1,3 @@
-
 ## SRK-Cuda-Base
 
 This dockerfile is destined for research and development of machine learning technologies especially deep learning. It can be use with mesos cluster.
