@@ -1,8 +1,8 @@
 FROM debian:jessie
-MAINTAINER Kostaintyn Bokhan <k.bokhan@samsung.com> 
+MAINTAINER Kostaintyn Bokhan  
 
 # Add image description and version
-ENV IMAGE_DESCRIPTION SRK-Base-Conda
+ENV IMAGE_DESCRIPTION UA-Base-Conda
 ENV IMAGE_VERSION 0.1
 
 ENV CONDA_DIR /opt/conda
