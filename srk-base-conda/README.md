@@ -1,8 +1,8 @@
 
-## SRK-Lasagne
+## UA-Lasagne
 
 This dockerfile is destined for research and development of machine learning technologies especially deep learning. It can be use with mesos cluster.
-SRK-lasagne is based on:
+UA-lasagne is based on:
 - debian
 - cuda 7.5.18
 - miniconda
