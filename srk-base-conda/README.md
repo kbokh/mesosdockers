@@ -20,8 +20,8 @@ One or more NVIDIA devices should be attached to the container
 
 #### Standalone
 ```
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/srk-lasagne
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/srk-lasagne 
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 ua-lasagne
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# ua-lasagne 
 ```
   where # is number of the NVIDIA device
 
@@ -44,7 +44,7 @@ docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nv
     "id": "rnn-53",
     "container": {
         "docker": {
-            "image": "krot/srk-lasagne",
+            "image": "ua-lasagne",
             "forcePullImage": true,
             "privileged": true
         },
