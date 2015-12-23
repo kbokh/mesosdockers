@@ -1,9 +1,9 @@
 FROM debian:jessie
-MAINTAINER Kostaintyn Bokhan <k.bokhan@samsung.com> 
+MAINTAINER Kostaintyn Bokhan <konstboh@gmail.com> 
 
 # Add image description and version
-ENV IMAGE_DESCRIPTION SRK-Cuda-Base
-ENV IMAGE_VERSION 0.1
+ENV IMAGE_DESCRIPTION ua-cuda-base
+ENV IMAGE_VERSION 0.3
 
 ENV CUDA_MAJOR_VERSION 7.5
 ENV CUDA_MINOR_VERSION 18

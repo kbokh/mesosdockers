@@ -1,8 +1,8 @@
 
-## SRK-Jupyter-gpu
+## UA-Jupyter-gpu
 
 This dockerfile is destined for research and development of deep learning technologies especially for a mesos cluster.
-SRK-Jupyter-gpu integartes jupyter web application, cuda, spark and can be connected to a mesos cluster. SRK-Jupyter-gpu consists of:
+UA-Jupyter-gpu integartes jupyter web application, cuda, spark and can be connected to a mesos cluster. UA-Jupyter-gpu consists of:
 - debian
 - cuda 7.5.18
 - miniconda
@@ -23,8 +23,8 @@ One or more NVIDIA devices should be attached to the container
 
 #### Standalone
 ```
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/srk-lasagne
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/srk-lasagne 
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/ua-jupyter-gpu
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/ua-jupyter-gpu 
 ```
   where # is number of the NVIDIA device
 
@@ -47,7 +47,7 @@ docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nv
 "id": "jupyter-job",
     "container": {
         "docker": {
-            "image": "krot/srk-jupyter-gpu",
+            "image": "krot/ua-jupyter-gpu",
             "forcePullImage": true,
             "privileged": true,
             "network": "BRIDGE",

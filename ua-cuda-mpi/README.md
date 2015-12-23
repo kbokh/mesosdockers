@@ -1,4 +1,4 @@
-## SRK-Cuda-MPI
+## UA-Cuda-MPI
 
 This dockerfile is destined for research and development of machine learning technologies especially deep learning. It can be use with mesos cluster and OpenMPI.
 SRK-Cuda-MPI is based on:
@@ -17,8 +17,8 @@ SRK-Cuda-MPI is based on:
 
 #### Standalone
 ```
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/srk-cuda-mpi
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/srk-cuda-mpi 
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/ua-cuda-mpi
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/ua-cuda-mpi 
 ```
   where # is number of the NVIDIA device
 
@@ -41,7 +41,7 @@ docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nv
     "id": "cuda-mpi-01",
     "container": {
         "docker": {
-            "image": "krot/srk-cuda-base",
+            "image": "krot/ua-cuda-base",
             "forcePullImage": true,
             "privileged": true
         },

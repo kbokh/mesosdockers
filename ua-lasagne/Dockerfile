@@ -1,8 +1,8 @@
-FROM krot/srk-cuda-base:latest
-MAINTAINER Kostaintyn Bokhan <k.bokhan@samsung.com> 
+FROM krot/ua-cuda-base:latest
+MAINTAINER Kostaintyn Bokhan <konstboh@gmail.com> 
 
 # Add image description and version
-ENV IMAGE_DESCRIPTION SRK-Lasagne
+ENV IMAGE_DESCRIPTION ua-lasagne
 ENV IMAGE_VERSION 0.2
 
 ENV CONDA_DIR /opt/conda

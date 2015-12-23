@@ -1,9 +1,9 @@
-FROM krot/srk-lasagne
-MAINTAINER Kostaintyn Bokhan <k.bokhan@samsung.com> 
+FROM krot/ua-lasagne
+MAINTAINER Kostaintyn Bokhan <konstboh@gmail.com> 
 
 # Add image description and version
-ENV IMAGE_DESCRIPTION SRK-Jupyter-gpu
-ENV IMAGE_VERSION 0.1
+ENV IMAGE_DESCRIPTION ua-jupyter-gpu
+ENV IMAGE_VERSION 0.2
 
 ENV SHELL /bin/bash
 ENV NB_USER spworker

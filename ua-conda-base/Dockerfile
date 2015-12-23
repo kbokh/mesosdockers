@@ -1,8 +1,8 @@
 FROM debian:jessie
-MAINTAINER Kostaintyn Bokhan  
+MAINTAINER Kostaintyn Bokhan <konstboh@gmail.com>
 
 # Add image description and version
-ENV IMAGE_DESCRIPTION UA-Base-Conda
+ENV IMAGE_DESCRIPTION ua-conda-base
 ENV IMAGE_VERSION 0.1
 
 ENV CONDA_DIR /opt/conda

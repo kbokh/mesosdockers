@@ -1,8 +1,8 @@
 
-## SRK-Lasagne
+## UA-Lasagne
 
 This dockerfile is destined for research and development of machine learning technologies especially deep learning. It can be use with mesos cluster.
-SRK-lasagne is based on:
+UA-lasagne is based on:
 - debian
 - cuda 7.5.18
 - miniconda
@@ -20,8 +20,8 @@ One or more NVIDIA devices should be attached to the container
 
 #### Standalone
 ```
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/srk-lasagne
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/srk-lasagne 
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/ua-lasagne
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/ua-lasagne 
 ```
   where # is number of the NVIDIA device
 
@@ -44,7 +44,7 @@ docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nv
     "id": "rnn-53",
     "container": {
         "docker": {
-            "image": "krot/srk-lasagne",
+            "image": "krot/ua-lasagne",
             "forcePullImage": true,
             "privileged": true
         },

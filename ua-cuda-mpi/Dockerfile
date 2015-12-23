@@ -1,8 +1,8 @@
-FROM krot/srk-cuda-base:latest
-MAINTAINER Kostaintyn Bokhan <k.bokhan@samsung.com> 
+FROM krot/ua-cuda-base:latest
+MAINTAINER Kostaintyn Bokhan <konstboh@gmail.com> 
 
 # Add image description and version
-ENV IMAGE_DESCRIPTION SRK-Cuda-MPI
+ENV IMAGE_DESCRIPTION ua-cuda-mpi
 ENV IMAGE_VERSION 0.1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \

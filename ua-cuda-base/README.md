@@ -1,7 +1,7 @@
-## SRK-Cuda-Base
+## UA-Cuda-Base
 
 This dockerfile is destined for research and development of machine learning technologies especially deep learning. It can be use with mesos cluster.
-SRK-Cuda-Base is based on:
+UA-Cuda-Base is based on:
 - debian
 - cuda 7.5.18
 - cuDNN
@@ -16,8 +16,8 @@ One or more NVIDIA devices should be attached to the container
 
 #### Standalone
 ```
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/srk-cuda-base
-docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/srk-cuda-base 
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 krot/ua-cuda-base
+docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nvidia0 --device /dev/nvidia1 ... --device /dev/nvidia# krot/ua-cuda-base 
 ```
   where # is number of the NVIDIA device
 
@@ -40,7 +40,7 @@ docker run -it --device /dev/nvidiactl --device /dev/nvidia-uvm --device /dev/nv
     "id": "cuda-base-01",
     "container": {
         "docker": {
-            "image": "krot/srk-cuda-base",
+            "image": "krot/ua-cuda-base",
             "forcePullImage": true,
             "privileged": true
         },
