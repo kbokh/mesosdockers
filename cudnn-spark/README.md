@@ -10,8 +10,8 @@ cudnn-spark is based on nvidia/cuda:cudnn and consists of spark
     - Minimum driver version: >= 352.39
     - Minimum GPU architecture: >= 2.0 (Fermi)
 - [nvidia-docker](https://github.com/NVIDIA/nvidia-docker/wiki/Using-nvidia-docker)
-- [nvidia-dcoker-plugin](https://github.com/NVIDIA/nvidia-docker/wiki/Using-nvidia-docker-plugin)
-- mesos cluster v.0.28
+- [nvidia-docker-plugin](https://github.com/NVIDIA/nvidia-docker/wiki/Using-nvidia-docker-plugin)
+- mesos cluster >= 0.28
 
 ### Usage
 
