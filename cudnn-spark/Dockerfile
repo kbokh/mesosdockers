@@ -18,13 +18,14 @@ RUN apt-get remove -y --auto-remove openjdk* && \
     apt-get -y --download-only --no-install-recommends install mesos && \
     mkdir /tmp/mesos && \
     dpkg-deb -x /var/cache/apt/archives/mesos*.deb /tmp/mesos && \
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
     python \
     libnss3 \
+    libsvn1 \
     openjdk-7-jre-headless \
     curl && \
 #    openjdk-8-jdk && \
-    rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/oracle-jdk*
+    apt-get clean && rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/oracle-jdk*
 
 RUN cp /tmp/mesos/usr/lib/libmesos* /usr/local/lib/ && \
     rm -r -f /tmp/mesos/
