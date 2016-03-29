@@ -24,10 +24,9 @@ RUN apt-get remove -y --auto-remove openjdk* && \
     libsvn1 \
     openjdk-7-jre-headless \
     curl && \
-#    openjdk-8-jdk && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/oracle-jdk*
 
-RUN cp /tmp/mesos/usr/lib/libmesos* /usr/local/lib/ && \
+RUN cp /tmp/mesos/usr/lib/libmesos* /usr/lib/ && \
     rm -r -f /tmp/mesos/
 
 
@@ -36,6 +35,10 @@ RUN mkdir /opt/spark && \
     | tar --strip-components=1 -xzC /opt/spark && \
     rm /opt/spark/lib/spark-examples-*.jar
 
+RUN adduser -u 1001 --disabled-password --gecos "" worker
+
+USER worker
+
 ENV SPARK_HOME /opt/spark
 ENV PATH $PATH:/opt/spark/bin
-ENV MESOS_NATIVE_JAVA_LIBRARY /usr/local/lib/libmesos.so
+ENV MESOS_NATIVE_JAVA_LIBRARY /usr/lib/libmesos-0.28.0.so
