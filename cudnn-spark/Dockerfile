@@ -8,8 +8,8 @@ ENV SPARK_VERSION 1.6.1
 ENV JAVA_VERSION 8
 ENV MESOS_VERSION 0.28.0
 
-# Configure Debian proxy
-RUN echo 'Acquire::http::Proxy "http://106.125.32.200:3142/";' | sudo tee --append /etc/apt/apt.conf.d/30proxy
+# Configure corporate Debian proxy
+# RUN echo 'Acquire::http::Proxy "http://106.125.32.200:3142/";' | sudo tee --append /etc/apt/apt.conf.d/30proxy
 
 RUN apt-get remove -y --auto-remove openjdk* && \
     echo "deb http://repos.mesosphere.com/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/mesosphere.list && \
