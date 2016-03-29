@@ -17,7 +17,14 @@ cudnn-spark is based on nvidia/cuda:cudnn and consists of spark
 
 #### Local - spark-submit
 ```
-nvidia-docker run --net host kbokh/cudnn-spark spark-submit --master mesos://<mesos-master-host>:<port> --deploy-mode client --conf spark.mesos.executor.docker.image=kbokh/cudnn-spark --class <main-class> /<app-jar>
+nvidia-docker run --net host kbokh/cudnn-spark spark-submit \
+       --master mesos://<mesos-master-host>:<port> \
+       --deploy-mode client \
+       --conf spark.mesos.executor.docker.image=kbokh/cudnn-spark
+       --conf spark.mesos.mesosExecutor.cores=<num of cores> \
+       --conf spark.mesos.coarse=false \
+       --conf spark.mesos.executor.docker.volumes=/var/lib/mesos:/var/lib/mesos:rw \
+       --class <main-class> /<app-jar>
 ```
   where <main-class> /<app-jar> is a spark application
 
