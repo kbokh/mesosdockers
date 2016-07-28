@@ -1,0 +1,37 @@
+{
+  "id": "/cassandra-test",
+  "instances": 1,
+  "cpus": 0.5,
+  "mem": 128,
+  "args": ["cassandra","-f"],
+  "constraints": [
+    [
+      "rack",
+      "CLUSTER",
+      "system"
+    ],
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "network": "HOST",
+      "forcePullImage": true,
+      "image": "registry.surc.local:5000/nosql/cassandra",
+      "parameters": [
+                { "key": "user", "value": "cassandra" }
+            ]
+    }
+  },
+  "env": {
+    "CASSANDRA_CLUSTER_NAME": "Test Cluster",
+    "CASSANDRA_SEEDS": "106.125.32.171,106.125.32.176,106.125.32.177",
+    "CASSANDRA_DC": "test",
+    "CASSANDRA_RACK": "test",
+    "CASSANDRA_ENDPOINT_SNITCH": "GossipingPropertyFileSnitch",
+    "CASSANDRA_START_RPC": "true"
+  }
+}

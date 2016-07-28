@@ -1,0 +1,45 @@
+{
+  "id": "/cassandra/cassandra.gpu",
+  "instances": 5,
+  "cpus": 2.0,
+  "mem": 3072.0,
+  "cmd": "/docker-entrypoint.sh cassandra -f",
+  "constraints": [
+    [
+      "rack",
+      "CLUSTER",
+      "gpu"
+    ],
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "network": "HOST",
+      "forcePullImage": true,
+      "image": "registry.surc.local:5000/nosql/cassandra",
+      "parameters": [
+                { "key": "user", "value": "cassandra" }
+            ]
+    },
+    "volumes": [
+      {
+        "containerPath": "/var/lib/cassandra",
+        "hostPath": "/storage/ssd/cassandra",
+        "mode": "RW"
+      }
+    ]
+  },
+  "env": {
+    "CASSANDRA_CLUSTER_NAME": "SRK Cluster",
+    "CASSANDRA_SEEDS": "106.125.32.161,106.125.32.172,106.125.32.164",
+    "CASSANDRA_DC": "srk",
+    "CASSANDRA_RACK": "gpu",
+    "CASSANDRA_ENDPOINT_SNITCH": "GossipingPropertyFileSnitch",
+    "CASSANDRA_START_RPC": "true",
+    "LOCAL_JMX": "no"
+  }
+}
