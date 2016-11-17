@@ -1,6 +1,5 @@
 # Aurora scheduler docker image
 
-This docker image is aimed at integrating Apache aurora framework with DC/OS.
 Current version of components:
 - Mesos: 1.0.1
 - Aurora-scheduler: 0.16.0
