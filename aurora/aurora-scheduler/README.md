@@ -4,6 +4,7 @@ This docker image is aimed at integrating Apache aurora framework with DC/OS.
 Current version of components:
 - Mesos: 1.0.1
 - Aurora-scheduler: 0.16.0
+- Bease OS/docker image: centos-7
 
 ## Quick start
 
@@ -53,19 +54,21 @@ ENV ALLOWED_CONTAINER_TYPES 'MESOS,DOCKER'
 ENV EXTRA_SCHEDULER_ARGS " "
 ```
 
+Please refer to Aurora documentation for details.
+
 ### Usage
 
 1. Starting an aurora scheduler instance
 
-`docker run -e "CLUSTER_NAME=YourClaster" -e "ZK_ENDPOINTS=master.mesos:2181" -e "MESOS_MASTER=zk://master.mesos:2181/mesos" krot/aurora-scheduler aurora-scheduler`
+`docker run --net=host -e "CLUSTER_NAME=YourClaster" -e "ZK_ENDPOINTS=master.mesos:2181" -e "MESOS_MASTER=zk://master.mesos:2181/mesos" krot/aurora-scheduler aurora-scheduler`
 
 2. Start 3 - 5 schedulers for failure tolerance
 
-`docker run -e "CLUSTER_NAME=YourClaster" -e "ZK_ENDPOINTS=master.mesos:2181" -e "MESOS_MASTER=zk://master.mesos:2181/mesos" -e "QUORUM_SIZE=2" krot/aurora-scheduler aurora-scheduler`
+`docker run --net=host -e "CLUSTER_NAME=YourClaster" -e "ZK_ENDPOINTS=master.mesos:2181" -e "MESOS_MASTER=zk://master.mesos:2181/mesos" -e "QUORUM_SIZE=2" krot/aurora-scheduler aurora-scheduler`
 
 3. Enabling gpu support
 
-`docker run -e "CLUSTER_NAME=YourClaster" -e "ZK_ENDPOINTS=master.mesos:2181" -e "MESOS_MASTER=zk://master.mesos:2181/mesos" -e "EXTRA_SCHEDULER_ARGS='-allow_gpu_resource=true'" krot/aurora-scheduler aurora-scheduler`
+`docker run --net=host -e "CLUSTER_NAME=YourClaster" -e "ZK_ENDPOINTS=master.mesos:2181" -e "MESOS_MASTER=zk://master.mesos:2181/mesos" -e "EXTRA_SCHEDULER_ARGS='-allow_gpu_resource=true'" krot/aurora-scheduler aurora-scheduler`
 
 4. DC/OS service JSON
 
@@ -82,6 +85,12 @@ ENV EXTRA_SCHEDULER_ARGS " "
   "mem": 1024,
   "disk": 0,
   "gpus": 0,
+  "constraints": [
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
   "container": {
     "docker": {
       "image": "krot/aurora-scheduler",
