@@ -1,6 +1,5 @@
 # Aurora executor docker image
 
-This docker image is aimed at integrating Apache aurora framework with DC/OS.
 Current version of components:
 - Mesos: 1.0.1
 - Aurora-scheduler: 0.16.0
@@ -25,13 +24,16 @@ Please refer to Aurora documentation for details.
 
 1. Starting an aurora executor instance. Executors should be started on all slave nodes (agents)
 
-`docker run --net=host krot/aurora-executor thermos_observer`
+`docker run --net=host -v /var/lib/mesos:/var/lib/mesos:rw krot/aurora-executor thermos_observer`
 
 2. DC/OS service JSON. Don't forget to add the hostname:UNIQUE constrain in order to start only one executor on each agent.
 
 ```
 {
   "id": "/aurora/aurora-executor",
+  "env": {
+    "MESOS_ROOT": "/var/lib/mesos/slave"
+  },
   "instances": 20,
   "cpus": 1,
   "mem": 128,
@@ -53,7 +55,7 @@ Please refer to Aurora documentation for details.
     "type": "DOCKER",
     "volumes": [
       {
-        "containerPath": "/var/lib/mesos",
+        "containerPath": "/var/lib/mesos/slave",
         "hostPath": "/var/lib/mesos/slave",
         "mode": "RW"
       },
