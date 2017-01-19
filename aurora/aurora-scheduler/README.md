@@ -1,4 +1,4 @@
-# Aurora scheduler docker image
+# Aurora scheduler dockerfile
 
 Current version of components:
 - Mesos: 1.0.1
